@@ -1,0 +1,61 @@
+{% extends "accounts/main.html" %} 
+
+{% block content %}
+
+{% include "accounts/status.html" %}
+
+<br>
+
+<div class="row">
+    
+    <div class="col-md-5">
+        <div class="col"><h5>СТУДЕНТЫ</h5></div>
+        <hr>
+        <div class="card card-body">
+            <a class="btn btn-primary btn-sm btn-block" href="">Добавить студента</a>
+            <table class="table table-sm">
+                <tr>
+                    <th></th>
+                    <th>Студент</th>
+                    <th>Уроки</th>
+                </tr>
+                {% for customer in customers %}
+                    <tr>
+                        <td><a class="btn btn-primary btn-sm" href="{% url 'customer' customer.id %}">Просмотр</a></td>
+                        <td>{{ customer.name }}</td>
+                        <td>{{ customer.orders }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <div class="col-md-7">
+        <div class="col"><h5>БЛИЖАЙШИЕ 5 УРОКОВ</h5></div>
+        <hr>
+        <div class="card card-body">
+            <table class="table table-sm">
+                <tr>
+                    <th>Студент</th>
+                    <th>Дата занятия</th>
+                    <th>Дисциплина</th>
+                    <th>Обновить</th>
+                    <th>Удалить</th>
+                </tr>
+                {% for order in orders %}
+                    <tr>
+                        <td>{{order.product}}</td>
+                        <td>{{order.date_created}}</td>
+                        <td>{{order.status}}</td>
+                        <td><a class="btn btn-warning btn-sm" href="{% url 'update_order' order.id %}">Обновить</a></td>
+                        <td><a class="btn btn-danger btn-sm" href="{% url 'delete_order' order.id %}">Удалить</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+

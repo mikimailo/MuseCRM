@@ -1,0 +1,30 @@
+body {
+    background-color: #ebeff5;
+}
+
+#total-orders {
+    background-color: #65be95;
+}
+
+#orders-delivered {
+    background-color: #aba5d9;
+}
+
+#orders-pending {
+    background-color: #ffae6c;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #5ba9c2;
+    border-color: #5ba9c2;
+}
+.btn-warning {
+    color: #212529;
+    background-color: #f3c461;
+    border-color: #f3c461;
+}
+.btn-danger {
+    color: #fff;
+    background-color: #c44b56;
+    border-color: #c44b56;
+}
